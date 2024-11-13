@@ -9,7 +9,7 @@
     <body>
         <div id="header"></div>
         <main>
-            <h1>Cole Lin</h1>
+            <span id="name">Cole Lin</span>
             <p>Test</p>
             <p>Lorem ipsum dolor sit amet, cosnitc set ealit. it isf t s asdflk dconsitr restyicutor</p>
             <p>I found a love for me
@@ -55,10 +55,17 @@
 
         function toggleMenu() {
             var x = document.getElementById("header");
-            if (x.className !== "open") {
+            if (x.className == "closed" | x.className == "") {
+		x.className = "";
+		x.offsetWidth;
                 x.className = "open";
             } else {
-                x.className = "closed";
+		    x.className = "";
+	            x.offsetWidth;
+		    x.className = "open closed";
+		    setTimeout(function() {
+			x.className = "closed";
+		    }, 250);
             }
         }
     </script>

@@ -51,11 +51,22 @@ menu li:last-child {
 }
 
 main {
-    padding: 5px 15px 15px 15px;
+    padding: 8px 15px 15px 15px;
     margin: auto;
     max-width: 1100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
+#name {
+    font-size: 14em;
+    margin: 15px;
+    font-family: "Squada One", sans-serif;
+}
+    
 @media screen and (max-width: 600px) {
     menu {
         display: flex;
@@ -86,38 +97,49 @@ main {
     
     @keyframes open-menu-element {
         from {
+	    background-color: var(--p-color);
             transform: translateY(300%);
         }
         to {
+	    background-color: var(--p-color);
             transform: translateY(0%);
         }
     }
     
-
-    @keyframes open-menu {
+    @keyframes hide-bg {
         from {
             background-color: #0000;
         }
         to {
-            background-color: var(--p-color);
+            background-color: #0000;
         }
     }
 
     div.open menu {
         flex-direction: column-reverse;
 
-        animation-name: open-menu;
+        animation-name: hide-bg;
         animation-duration: 0.25s;
+    }
+
+    div.closed menu {
+    	animation-name: hide-bg;
+    	animation-duration: 0.25s;
     }
 
     div.open menu li {
         display: block;
-
     }
     
     div.open menu li:not(:first-child, :last-child) {
         animation-name: open-menu-element;
         animation-duration: 0.25s;
+    }
+
+    div.closed menu li:not(:first-child, :last-child) {
+        animation-name: open-menu-element;
+        animation-duration: 0.25s;
+	animation-direction: reverse;
     }
 
     div.open menu li a {
