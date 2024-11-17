@@ -17,16 +17,55 @@ body {
     overflow-x: hidden
 }
 
-p {
-    margin-top: 10px;
+p, ul, h1 {
+    max-width: 1100px;
+    padding: 0px 30px;
 }
 
+ul {
+    list-style-type: "★ ";
+}
+/*
 #houses {
     background-image: url('houses.png');
     background-size: cover;
     width: 100vw;
     height: calc(100vw*695/1325);
     box-shadow: 0 -10px 8px #23313c inset;
+}*/
+
+#about-me-div {
+    background-color: #72b6ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    width: 100vw;
+    padding-bottom: 4vw;
+}
+
+#ubc {
+    background-image: url('ubc.png');
+    background-size: cover;
+    width: 100vw;
+    height: calc(100vw*673/1325);
+    z-index: 2;
+    margin-top: -4%;
+    mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 96%, rgba(0,0,0,0) 100%);
+}
+
+#experience-div {
+    margin-top: calc(-100vw*168/1325);
+    width: max(40vw, 700px);
+    margin-left: 7vw;
+    align-self: start;
+}
+
+@media screen and (max-width: 800px) {
+    #experience-div {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 #duck {
@@ -55,6 +94,9 @@ p {
 
 div#header {
     width: 100%;
+    position:fixed;
+    z-index: 100;
+    top:0;
 }
 
 menu {
@@ -89,9 +131,7 @@ menu li:last-child {
 }
 
 main {
-    padding: 8px 15px 15px 15px;
-    margin: auto;
-    max-width: 1100px;
+    padding: 50px 15px 15px 15px;
 
     display: flex;
     flex-direction: column;
@@ -105,6 +145,10 @@ main {
 }
     
 @media screen and (max-width: 600px) {
+    main {
+        margin-top: -50px;
+    }
+
     menu {
         display: flex;
         position: fixed;
