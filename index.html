@@ -1,134 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#000000">
-    <title>Pure Color</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scrollbar-width: none; 
-            -ms-overflow-style: none; 
-            /* Enlève le highlight bleu quand on tape sur mobile */
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        *::-webkit-scrollbar {
-            display: none;
-        }
-
-        body {
-            background-color: #000;
-            overflow: hidden;
-            font-family: sans-serif;
-        }
-
-        #app {
-            height: 100vh;
-            /* Support pour les écrans à encoche (notch) */
-            height: 100dvh; 
-            width: 100vw;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-        }
-
-        .color-page {
-            height: 100vh;
-            height: 100dvh;
-            width: 100vw;
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
-            user-select: none;
-            -webkit-user-select: none;
-            
-            /* Centrage du texte d'aide optionnel */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Petit texte qui disparaît après le premier clic */
-        #hint {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 14px;
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity 0.5s;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 999;
-        }
-    </style>
-</head>
-<body>
-
-    <div id="hint">Tapez pour le plein écran</div>
-
-    <div id="app"></div>
-
-    <script>
-        const app = document.getElementById('app');
-        const hint = document.getElementById('hint');
-
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        function addColorPage() {
-            const div = document.createElement('div');
-            div.classList.add('color-page');
-            div.style.backgroundColor = getRandomColor();
-            app.appendChild(div);
-        }
-
-        // Génération initiale
-        for (let i = 0; i < 50; i++) {
-            addColorPage();
-        }
-
-        // Scroll infini
-        app.addEventListener('scroll', () => {
-            if (app.scrollTop + app.clientHeight >= app.scrollHeight - 100) {
-                for (let i = 0; i < 10; i++) {
-                    addColorPage();
-                }
-            }
-        });
-
-        // GESTION DU PLEIN ÉCRAN
-        document.body.addEventListener('click', () => {
-            // 1. Essayer de passer en plein écran via l'API standard
-            if (!document.fullscreenElement) {
-                if (document.documentElement.requestFullscreen) {
-                    document.documentElement.requestFullscreen().catch(err => console.log(err));
-                } else if (document.documentElement.webkitRequestFullscreen) { /* Safari */
-                    document.documentElement.webkitRequestFullscreen();
-                } else if (document.documentElement.msRequestFullscreen) { /* IE11 */
-                    document.documentElement.msRequestFullscreen();
-                }
-            }
-
-            // 2. Cacher le texte d'indice
-            if (hint) {
-                hint.style.opacity = '0';
-                setTimeout(() => hint.remove(), 500);
-            }
-        });
-    </script>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Undefynedd</title>
+    </head>
+    <body>
+        <h1>Home</h1>
+        <ul>
+            <li><a href="/scroll">Scroll</a></li>
+            <li><a href="/aliens">Aliens</a></li>
+        </ul>
+    </body>
 </html>
