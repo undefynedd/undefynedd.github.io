@@ -2,6 +2,7 @@
 
 h1 {
     font-family: Kablammo, system-ui;
+    color: #177E89;
 }
 
 body {
@@ -10,23 +11,36 @@ body {
     font-style: normal;
     font-size: 16pt;
     background: #ECDFD0;
+    color: #261E1D
+}
+
+#main {
+    max-width: 1000px;
+    margin: auto;
 }
 
 #feature-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
     gap: 1rem;
     align-items: stretch;
+    text-align: center;
 }
 
 #feature-container a {
     background: #EBC0C0;
     border-radius: 15px;
     padding: 20px;
+}
+
+#feature-container a div {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
+
 
 #feature-container a:hover {
     box-shadow: -1px 5px 6px rgba(0, 0, 0, 0.15);
